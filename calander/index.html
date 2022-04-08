@@ -1,0 +1,82 @@
+<head>
+
+<!-- Include meta tag to ensure proper rendering and touch zooming -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Include jQuery Mobile stylesheets -->
+<link rel="stylesheet" href="jquery-css.css">
+
+<!-- Include the jQuery library -->
+<script src="jquery.js"></script>
+
+<!-- Include the jQuery Mobile library -->
+<script src="jquery-mobile.js"></script>
+<style>
+  .flex{
+    display: flex;
+    justify-content: center;
+  }
+  .notes_line{
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+  .notes_line b{
+    margin-top: 16px;
+  }
+  #footer{
+    position:absolute;
+    top:90%;
+    width:100%;
+  }
+  
+</style>
+</head>
+<body>
+
+<div data-role="page" id="homepage">
+  <div data-role="header">
+    <h1>Calander</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+    <p>Welcome! To Calander, Click to check it</p>
+    <a href="#isb" class="ui-btn ui-icon-arrow-r ui-btn-icon-right" data-transition="flow">Check</a>
+  </div>
+
+  <div data-role="footer" id="footer">
+    <h1>Copy Right &copy; 2016</h1>
+  </div>
+</div> 
+
+<div data-role="page" id="isb">
+  <div data-role="header">
+    <h1><a href="#homepage" class="ui-btn ui-icon-arrow-l ui-btn-icon-left" data-transition="flip">Back to Homepage</a></h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+    <input id="calender" type="date" />
+  </div>
+  <div class="flex" id="note_div">
+    <input placeholder="Enter your note" type="text" name="" id="note">
+  </div>
+  <div class="flex" id="add">
+    <a onclick="add()" href="#add" class="ui-btn ui-icon-plus ui-btn-icon-right" data-transition="flow">Add</a>
+  </div>
+  <div id="notes">
+    
+  </div>
+</div> 
+
+
+<script>
+  function add(){
+    console.log(document.getElementById("calender").value)
+    var temp="<div class='notes_line'><b>"+document.getElementById("calender").value+"</b><p>"+document.getElementById('note').value+"</p></div>";
+    $("#notes").append(temp);
+  }
+  
+</script>
+</body>
+</html>
